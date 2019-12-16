@@ -3,6 +3,7 @@ package com.Services;
 import com.models.Authentication;
 import com.models.Distributors;
 import com.models.User;
+import org.springframework.http.HttpEntity;
 
 public interface OnboardingInterface {
     void setMetadata();

@@ -29,21 +29,29 @@ public class OnBoardingServices implements OnboardingInterface {
 
     @Override
     public String Login(Authentication payload){
-        return restTemplate.exchange("localhost:8085/Gasman/Login", HttpMethod.POST, entity, String.class).getBody();
+        HttpEntity<Authentication> entity = new HttpEntity<>(payload);
+        return restTemplate.postForObject("localhost:8085/Gasman/Login", entity, String.class);
+      //  return restTemplate.exchange("localhost:8085/Gasman/Login", HttpMethod.POST, entity, String.class).getBody();
     }
 
     @Override
     public String SignUp(Authentication payload){
-        return restTemplate.exchange("localhost:8085/Gasman/Signup", HttpMethod.POST, entity, String.class).getBody();
+        HttpEntity<Authentication> entity = new HttpEntity<>(payload);
+        return restTemplate.postForObject("localhost:8085/Gasman/Signup", entity, String.class);
+        //return restTemplate.exchange("localhost:8085/Gasman/Signup", HttpMethod.POST, entity, String.class).getBody();
     }
 
     @Override
     public String userRegistration(User payload){
-        return restTemplate.exchange("localhost:8085/Gasman/createUser", HttpMethod.POST, entity, String.class).getBody();
+        HttpEntity<User> entity = new HttpEntity<>(payload);
+        return restTemplate.postForObject("localhost:8085/Gasman/createUser", entity, String.class);
+        //return restTemplate.exchange("localhost:8085/Gasman/createUser", HttpMethod.POST, entity, String.class).getBody();
     }
 
     @Override
     public String distributorRegistration(Distributors payload){
-        return restTemplate.exchange("localhost:8085/Gasman/createDistributor", HttpMethod.POST, entity, String.class).getBody();
+        HttpEntity<Distributors> entity = new HttpEntity<>(payload);
+        return restTemplate.postForObject("localhost:8085/Gasman/createDistributor", entity, String.class);
+       // return restTemplate.exchange("localhost:8085/Gasman/createDistributor", HttpMethod.POST, entity, String.class).getBody();
     }
 }
